@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+/*
+ * Dera design tokens.
+ * The default Tailwind palette is cleared so only the monochrome brand
+ * palette can be used. Opacity modifiers (white/60, black/10) still work.
+ */
+@theme {
+  --color-*: initial;
+  --color-black: #000000;
+  --color-ink: #080808;
+  --color-graphite: #111111;
+  --color-charcoal: #1a1a1a;
+  --color-steel: #777777;
+  --color-mist: #e8e8e8;
+  --color-white: #ffffff;
+
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* Editorial display scale. Tracking tightens as size grows. */
+  --text-display-hero: clamp(2.25rem, 0.5rem + 10vw, 9.25rem);
+  --text-display-hero--line-height: 0.9;
+  --text-display-hero--letter-spacing: -0.052em;
+
+  --text-display-xl: clamp(2.75rem, 0.6rem + 9vw, 10.5rem);
+  --text-display-xl--line-height: 0.88;
+  --text-display-xl--letter-spacing: -0.055em;
+
+  --text-display-lg: clamp(2.375rem, 1.2rem + 4.4vw, 5.75rem);
+  --text-display-lg--line-height: 0.95;
+  --text-display-lg--letter-spacing: -0.045em;
+
+  --text-display-md: clamp(2rem, 1.25rem + 2.8vw, 3.75rem);
+  --text-display-md--line-height: 1;
+  --text-display-md--letter-spacing: -0.038em;
+
+  --text-display-sm: clamp(1.5rem, 1.15rem + 1.25vw, 2.25rem);
+  --text-display-sm--line-height: 1.1;
+  --text-display-sm--letter-spacing: -0.028em;
+
+  --text-lead: clamp(1.0625rem, 0.95rem + 0.45vw, 1.3125rem);
+  --text-lead--line-height: 1.55;
+  --text-lead--letter-spacing: -0.011em;
+
+  --animate-page-enter: page-enter 0.5s var(--ease-out-expo) both;
+  --animate-hero-line: hero-line 1.1s var(--ease-out-expo) both;
+  --animate-fade-up: fade-up 1s var(--ease-out-expo) both;
+  --animate-spin-slow: spin 90s linear infinite;
+  --animate-spin-slower: spin 140s linear infinite reverse;
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-grid-drift: grid-drift 6s linear infinite;
+  --animate-scroll-cue: scroll-cue 2.4s var(--ease-in-out-quart) infinite;
+  --animate-pulse-dot: pulse-dot 2.4s ease-out infinite;
+  --animate-blink: blink 1.1s steps(1) infinite;
+  --animate-dash: dash 3s linear infinite;
+  --animate-flow: flow 2.4s var(--ease-in-out-quart) infinite;
+
+  @keyframes page-enter {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes hero-line {
+    from {
+      transform: translate3d(0, 105%, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -8px, 0);
+    }
+  }
+  @keyframes grid-drift {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 64px, 0);
+    }
+  }
+  @keyframes scroll-cue {
+    0% {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    45% {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+    55% {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+    100% {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+  }
+  @keyframes pulse-dot {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(3.2);
+      opacity: 0;
+    }
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -48;
+    }
+  }
+  @keyframes flow {
+    from {
+      transform: translate3d(-100%, 0, 0);
+    }
+    to {
+      transform: translate3d(200%, 0, 0);
+    }
+  }
+}
+
+@theme inline {
+  --font-display:
+    var(--font-inter-tight), ui-sans-serif, system-ui, -apple-system, "SF Pro Display",
+    sans-serif;
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, "SF Pro Text", sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --nav-height: 4.5rem;
+  }
+
+  html {
+    background: var(--color-black);
+    color: var(--color-white);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+
+  [id] {
+    scroll-margin-top: calc(var(--nav-height) + 2rem);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .surface-light :focus-visible {
+    outline-color: var(--color-black);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* Fine technical grid used as a background texture. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-grid-light {
+    background-image:
+      linear-gradient(to right, rgb(0 0 0 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(0 0 0 / 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(255 255 255 / 0.55);
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  }
+
+  .mask-fade-y {
+    mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  }
+
+  .mask-radial {
+    mask-image: radial-gradient(closest-side, #000 40%, transparent);
+  }
+
+  /* Glass used sparingly: navigation and floating panels only. */
+  .glass-dark {
+    background: rgb(8 8 8 / 0.72);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass-dark {
+      background: var(--color-ink);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+
+  /* Hero headline line mask. The padding keeps descenders from clipping. */
+  .line-mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+
+  .legal-prose {
+    color: rgb(255 255 255 / 0.72);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+  .legal-prose h2 {
+    color: var(--color-white);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+  }
+  .legal-prose h2:first-child {
+    margin-top: 0;
+  }
+  .legal-prose h3 {
+    color: var(--color-white);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .legal-prose p + p,
+  .legal-prose ul + p,
+  .legal-prose p + ul {
+    margin-top: 1rem;
+  }
+  .legal-prose ul {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+  .legal-prose li {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .legal-prose li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 0.5rem;
+    height: 1px;
+    background: rgb(255 255 255 / 0.5);
+  }
+  .legal-prose strong {
+    color: var(--color-white);
+    font-weight: 600;
+  }
+  .legal-prose a {
+    color: var(--color-white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgb(255 255 255 / 0.4);
+  }
+}
+
+/* Every decorative loop stops for people who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
