@@ -5,15 +5,26 @@
  * environment and stay hidden until a real value is configured.
  */
 
-function cleanUrl(value: string | undefined): string {
-  const fallback = "http://localhost:3000";
-  if (!value) return fallback;
+function cleanUrl(value: string | undefined): string | null {
+  if (!value) return null;
   try {
-    const url = new URL(value);
-    return url.origin;
+    return new URL(value).origin;
   } catch {
-    return fallback;
+    return null;
   }
+}
+
+/**
+ * Public origin for canonical URLs. An explicit NEXT_PUBLIC_SITE_URL wins;
+ * on Vercel the project's production domain is used; locally, localhost.
+ */
+function resolveSiteUrl(): string {
+  const vercelHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  return (
+    cleanUrl(process.env.NEXT_PUBLIC_SITE_URL) ??
+    cleanUrl(vercelHost ? `https://${vercelHost}` : undefined) ??
+    "http://localhost:3000"
+  );
 }
 
 function optional(value: string | undefined): string | null {
@@ -27,7 +38,7 @@ export const siteConfig = {
   tagline: "Technology. Systems. Solutions.",
   description:
     "Dera Business Solutions is a Thiruvananthapuram-based business working across software development, ERP and enterprise systems, hardware supply, networking, business automation and IT services.",
-  url: cleanUrl(process.env.NEXT_PUBLIC_SITE_URL),
+  url: resolveSiteUrl(),
   locale: "en_IN",
   foundingYear: "2022",
 } as const;
