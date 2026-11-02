@@ -1,7 +1,7 @@
 /**
  * Single source of truth for business facts.
- * Everything here comes from the business registration details supplied by
- * Dera Business Solutions. Optional contact channels are read from the
+ * Everything here comes from the business details supplied by Dera Business
+ * Solutions. Optional channels (email, WhatsApp, social) are read from the
  * environment and stay hidden until a real value is configured.
  */
 
@@ -40,28 +40,22 @@ export const siteConfig = {
     "Dera Business Solutions is a Thiruvananthapuram-based business working across software development, ERP and enterprise systems, hardware supply, networking, business automation and IT services.",
   url: resolveSiteUrl(),
   locale: "en_IN",
-  foundingYear: "2022",
+  foundingYear: "2013",
 } as const;
 
 export const businessInfo = {
   legalName: "Dera Business Solutions",
-  structure: "Proprietorship",
   gstin: "32BAOPD9925J1ZF",
-  registrationDate: "25 October 2022",
-  registrationDateIso: "2022-10-25",
-  jurisdiction: "Taxpayer Services Circle Kazhakoottam",
-  jurisdictionCodes: "KLC230, TH0503",
-  natureOfBusiness: [
-    "Wholesale business",
-    "Supplier of services",
-    "Retail business",
-    "Works contract",
-    "Manufacturing and factory operations",
+  since: "2013",
+  /** Business phone lines, as supplied by the business. */
+  phones: [
+    { display: "+91 98957 99990", tel: "+919895799990" },
+    { display: "+91 96450 09821", tel: "+919645009821" },
   ],
   address: {
-    building: "Dera 510/2",
-    street: "Mundukari Road",
-    locality: "Kavottumukk",
+    building: "TC 1/2794-2",
+    street: "NH-66",
+    locality: "Kazhakuttam",
     city: "Thiruvananthapuram",
     state: "Kerala",
     postalCode: "695582",
@@ -78,7 +72,7 @@ export const addressLines = [
 
 export const addressSingleLine = `${businessInfo.address.building}, ${businessInfo.address.street}, ${businessInfo.address.locality}, ${businessInfo.address.city}, ${businessInfo.address.state} ${businessInfo.address.postalCode}, ${businessInfo.address.country}`;
 
-/** A map search for the registered address. No coordinates are assumed. */
+/** A map search for the business address. No coordinates are assumed. */
 export const mapSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   addressSingleLine,
 )}`;
@@ -89,7 +83,6 @@ export const mapSearchUrl = `https://www.google.com/maps/search/?api=1&query=${e
  */
 export const contactChannels = {
   email: optional(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
-  phone: optional(process.env.NEXT_PUBLIC_CONTACT_PHONE),
   whatsapp: optional(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)?.replace(/[^\d]/g, "") || null,
 } as const;
 

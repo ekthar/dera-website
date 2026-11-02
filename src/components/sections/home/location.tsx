@@ -32,6 +32,15 @@ export function Location() {
                 <br />
                 {businessInfo.address.city}, {businessInfo.address.state} - {businessInfo.address.postalCode}.
               </address>
+              <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-1 text-lead">
+                {businessInfo.phones.map((phone) => (
+                  <li key={phone.tel}>
+                    <a href={`tel:${phone.tel}`} className="text-white tabular-nums underline-offset-4 hover:underline">
+                      {phone.display}
+                    </a>
+                  </li>
+                ))}
+              </ul>
               <a
                 href={mapSearchUrl}
                 target="_blank"

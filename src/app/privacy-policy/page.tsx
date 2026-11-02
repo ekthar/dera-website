@@ -25,11 +25,11 @@ const sections = [
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalPage eyebrow="Privacy Policy" title={["Privacy Policy"]} updated="1 November 2026" sections={sections}>
+    <LegalPage eyebrow="Privacy Policy" title={["Privacy Policy"]} updated="2 November 2026" sections={sections}>
       <h2 id="who-we-are">Who we are</h2>
       <p>
-        This website is operated by <strong>{businessInfo.legalName}</strong>, a {businessInfo.structure.toLowerCase()}{" "}
-        registered in India (GSTIN {businessInfo.gstin}), with its business address at {addressSingleLine}. In this policy,
+        This website is operated by <strong>{businessInfo.legalName}</strong> (GSTIN {businessInfo.gstin}), with its
+        business address at {addressSingleLine}. In this policy,
         &ldquo;Dera&rdquo;, &ldquo;we&rdquo; and &ldquo;us&rdquo; refer to the business.
       </p>
       <p>
@@ -106,7 +106,8 @@ export default function PrivacyPolicyPage() {
 
       <h2 id="contact">Contact</h2>
       <p>
-        For privacy questions or requests, write to {businessInfo.legalName}, {addressSingleLine}
+        For privacy questions or requests, write to {businessInfo.legalName}, {addressSingleLine}, call{" "}
+        <a href={`tel:${businessInfo.phones[0].tel}`}>{businessInfo.phones[0].display}</a>
         {contactChannels.email ? (
           <>
             {" "}

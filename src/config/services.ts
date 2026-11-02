@@ -118,7 +118,7 @@ export const services: ReadonlyArray<Service> = [
       "System setup and software installation",
       "Troubleshooting hardware and software problems",
       "Maintenance of computers and peripherals",
-      "Works contracts for technology installations",
+      "Technology installation projects",
     ],
     visual: "blueprint",
   },
@@ -131,7 +131,7 @@ export const contactServiceOptions: ReadonlyArray<{ value: string; label: string
   { value: "other", label: "Something else" },
 ];
 
-/** Registered business activities, as listed by the business. */
+/** Areas of business, as listed by the business. */
 export const businessActivities: ReadonlyArray<string> = [
   "Software Development",
   "Enterprise Software Solutions",
@@ -143,5 +143,4 @@ export const businessActivities: ReadonlyArray<string> = [
   "Business Automation",
   "Wholesale and Retail Operations",
   "IT Support and Technical Services",
-  "Works Contract and Other Registered Business Activities",
 ];

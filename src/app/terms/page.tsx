@@ -25,12 +25,11 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <LegalPage eyebrow="Terms" title={["Terms of Use"]} updated="1 November 2026" sections={sections}>
+    <LegalPage eyebrow="Terms" title={["Terms of Use"]} updated="2 November 2026" sections={sections}>
       <h2 id="about">About these terms</h2>
       <p>
-        These terms apply to your use of this website, operated by <strong>{businessInfo.legalName}</strong>, a{" "}
-        {businessInfo.structure.toLowerCase()} registered in India (GSTIN {businessInfo.gstin}). By using the website you
-        agree to these terms. If you do not agree, please do not use the site.
+        These terms apply to your use of this website, operated by <strong>{businessInfo.legalName}</strong> (GSTIN{" "}
+        {businessInfo.gstin}). By using the website you agree to these terms. If you do not agree, please do not use the site.
       </p>
 
       <h2 id="information">Information on this site</h2>

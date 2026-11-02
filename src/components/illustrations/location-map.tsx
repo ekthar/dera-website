@@ -48,7 +48,7 @@ export function LocationMap({ className }: { className?: string }) {
         viewBox="0 0 900 640"
         className="block h-full w-full"
         role="img"
-        aria-label="Stylised map marking Dera Business Solutions at Kavottumukk, Thiruvananthapuram, Kerala"
+        aria-label="Stylised map marking Dera Business Solutions at Kazhakuttam, Thiruvananthapuram, Kerala"
       >
         <defs>
           <clipPath id="map-sea">
@@ -115,7 +115,7 @@ export function LocationMap({ className }: { className?: string }) {
       <div className="pointer-events-none absolute top-[51.56%] left-[62.2%] -translate-x-1/2 translate-y-7 sm:translate-x-8 sm:-translate-y-1/2">
         <div className="glass-dark rounded-xl px-4 py-3 ring-1 ring-white/15">
           <p className="text-[0.8125rem] font-semibold whitespace-nowrap text-white">Dera Business Solutions</p>
-          <p className="mt-0.5 text-[0.75rem] whitespace-nowrap text-white/60">Kavottumukk, Thiruvananthapuram</p>
+          <p className="mt-0.5 text-[0.75rem] whitespace-nowrap text-white/60">Kazhakuttam, Thiruvananthapuram</p>
         </div>
       </div>
     </div>

@@ -23,24 +23,22 @@ export function SiteFooter() {
             <p className="mt-8 font-display text-2xl leading-tight font-medium tracking-[-0.03em] text-white">
               {siteConfig.tagline}
             </p>
-            {contactChannels.email || contactChannels.phone ? (
-              <ul className="mt-8 space-y-2">
-                {contactChannels.email ? (
-                  <li>
-                    <a className={linkClass} href={`mailto:${contactChannels.email}`}>
-                      {contactChannels.email}
-                    </a>
-                  </li>
-                ) : null}
-                {contactChannels.phone ? (
-                  <li>
-                    <a className={linkClass} href={`tel:${contactChannels.phone.replace(/\s/g, "")}`}>
-                      {contactChannels.phone}
-                    </a>
-                  </li>
-                ) : null}
-              </ul>
-            ) : null}
+            <ul className="mt-8 space-y-2">
+              {businessInfo.phones.map((phone) => (
+                <li key={phone.tel}>
+                  <a className={`${linkClass} tabular-nums`} href={`tel:${phone.tel}`}>
+                    {phone.display}
+                  </a>
+                </li>
+              ))}
+              {contactChannels.email ? (
+                <li>
+                  <a className={linkClass} href={`mailto:${contactChannels.email}`}>
+                    {contactChannels.email}
+                  </a>
+                </li>
+              ) : null}
+            </ul>
           </div>
 
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-7">

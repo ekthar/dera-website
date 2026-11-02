@@ -48,9 +48,8 @@ const postalAddress = {
 /** Organization and LocalBusiness structured data. Only verified facts. */
 export function organizationJsonLd(): Record<string, unknown> {
   const orgId = `${siteConfig.url}/#organization`;
-  const contact: Record<string, string> = {};
+  const contact: Record<string, string> = { telephone: businessInfo.phones[0].tel };
   if (contactChannels.email) contact.email = contactChannels.email;
-  if (contactChannels.phone) contact.telephone = contactChannels.phone;
 
   return {
     "@context": "https://schema.org",

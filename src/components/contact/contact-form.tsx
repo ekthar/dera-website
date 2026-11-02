@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, CircleAlert, CircleCheck, Info, LoaderCircle } from "lucide-react";
 import { useId, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { contactServiceOptions } from "@/config/services";
+import { businessInfo } from "@/config/site";
 import {
   contactLimits,
   emptyContactFields,
@@ -27,6 +28,8 @@ type ContactFormProps = {
   initialService?: string;
   fallbackEmail?: string | null;
 };
+
+const callFirst = businessInfo.phones[0];
 
 const fieldOrder: ReadonlyArray<ContactField> = ["name", "email", "phone", "company", "service", "details"];
 
@@ -175,18 +178,21 @@ export function ContactForm({ deliveryConfigured, initialService = "", fallbackE
           <p>
             <strong className="font-medium text-white">Online submission is not connected yet.</strong> You can fill in
             the form to check your details, but messages cannot be sent from this page until email delivery is set up.
+            {" "}
+            Please call{" "}
+            <a className="whitespace-nowrap text-white underline underline-offset-2 tabular-nums" href={`tel:${callFirst.tel}`}>
+              {callFirst.display}
+            </a>
             {fallbackEmail ? (
               <>
                 {" "}
-                Please email{" "}
+                or email{" "}
                 <a className="text-white underline underline-offset-2" href={`mailto:${fallbackEmail}`}>
                   {fallbackEmail}
-                </a>{" "}
-                instead.
+                </a>
               </>
-            ) : (
-              <> Please visit or write to the business address shown on this page.</>
-            )}
+            ) : null}{" "}
+            instead.
           </p>
         </div>
       ) : null}

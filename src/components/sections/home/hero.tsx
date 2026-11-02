@@ -17,7 +17,7 @@ export function Hero() {
               <span className="absolute inset-0 animate-pulse-dot rounded-full bg-white" />
               <span className="relative size-1.5 rounded-full bg-white" />
             </span>
-            Thiruvananthapuram, India · Est. 2022
+            Thiruvananthapuram, India · Since 2013
           </p>
 
           <h1

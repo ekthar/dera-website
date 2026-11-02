@@ -1,7 +1,7 @@
 # Dera Business Solutions — website
 
-The corporate website for **Dera Business Solutions**, a registered proprietorship in
-Thiruvananthapuram, Kerala (GSTIN 32BAOPD9925J1ZF). It presents the company's services and its
+The corporate website for **Dera Business Solutions**, Kazhakuttam, Thiruvananthapuram, Kerala
+(GSTIN 32BAOPD9925J1ZF), in business since 2013. It presents the company's services and its
 in-development product, **N1 ERP**.
 
 Monochrome design system, editorial typography, and a restrained motion language built with
@@ -14,7 +14,7 @@ Next.js App Router, React 19, TypeScript, Tailwind CSS 4 and Motion.
 | `/`               | Home: hero, introduction, capabilities, N1 ERP, approach, location, CTA |
 | `/services`       | All six service areas with value, use cases and contact links          |
 | `/n1-erp`         | N1 ERP product page, clearly marked as in development                  |
-| `/about`          | Company profile and registered business details                        |
+| `/about`          | Company profile and business details                                   |
 | `/contact`        | Validated contact form and business details                            |
 | `/privacy-policy` | Privacy policy                                                         |
 | `/terms`          | Terms of use                                                           |
@@ -61,7 +61,6 @@ See [`.env.example`](./.env.example) for the full list. Summary:
 | `NEXT_PUBLIC_SITE_URL`                     | Production origin for canonical URLs, Open Graph and sitemap |
 | `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | Turns on contact form email delivery         |
 | `NEXT_PUBLIC_CONTACT_EMAIL`                | Shows a public email address                                 |
-| `NEXT_PUBLIC_CONTACT_PHONE`                | Shows a public phone number                                  |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER`              | Adds a WhatsApp enquiry link on the contact page             |
 | `NEXT_PUBLIC_LINKEDIN_URL`, `NEXT_PUBLIC_INSTAGRAM_URL`, `NEXT_PUBLIC_X_URL` | Adds footer social links   |
 
@@ -133,7 +132,7 @@ scripts/               favicon generator
 
 ### Editing content
 
-- **Business facts** (name, GSTIN, address, registration): `src/config/site.ts`
+- **Business facts** (name, GSTIN, address, phones, since year): `src/config/site.ts`
 - **Navigation and sitemap routes**: `src/config/navigation.ts`
 - **Services**: `src/config/services.ts`
 - **N1 ERP themes, stages and principles**: `src/config/erp.ts`

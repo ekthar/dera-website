@@ -61,6 +61,18 @@ export default function ContactPage() {
             </div>
 
             <div className="animate-fade-up [animation-delay:480ms] lg:col-span-4 lg:col-start-9">
+              <InfoBlock label="Phone">
+                <ul className="space-y-1">
+                  {businessInfo.phones.map((phone) => (
+                    <li key={phone.tel}>
+                      <a href={`tel:${phone.tel}`} className="tabular-nums text-white underline-offset-4 hover:underline">
+                        {phone.display}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </InfoBlock>
+
               <InfoBlock label="Business address">
                 <address className="not-italic">
                   {address.building}, {address.street},
@@ -81,22 +93,10 @@ export default function ContactPage() {
                 </a>
               </InfoBlock>
 
-              <InfoBlock label="Location">
-                {address.city}, {address.state}, {address.country}
-              </InfoBlock>
-
               {contactChannels.email ? (
                 <InfoBlock label="Email">
                   <a href={`mailto:${contactChannels.email}`} className="underline-offset-4 hover:underline">
                     {contactChannels.email}
-                  </a>
-                </InfoBlock>
-              ) : null}
-
-              {contactChannels.phone ? (
-                <InfoBlock label="Phone">
-                  <a href={`tel:${contactChannels.phone.replace(/\s/g, "")}`} className="underline-offset-4 hover:underline">
-                    {contactChannels.phone}
                   </a>
                 </InfoBlock>
               ) : null}
@@ -113,10 +113,6 @@ export default function ContactPage() {
 
               <InfoBlock label="GSTIN">
                 <span className="font-mono tracking-wide">{businessInfo.gstin}</span>
-              </InfoBlock>
-
-              <InfoBlock label="Business structure">
-                {businessInfo.structure}, registered {businessInfo.registrationDate}
               </InfoBlock>
             </div>
           </div>

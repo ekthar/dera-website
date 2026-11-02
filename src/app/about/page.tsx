@@ -15,7 +15,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = createPageMetadata({
   title: "About",
   description:
-    "Dera Business Solutions is a registered proprietorship in Thiruvananthapuram, Kerala, working across software, ERP, hardware, networking and IT services. GSTIN 32BAOPD9925J1ZF.",
+    "Dera Business Solutions, in business since 2013 in Kazhakuttam, Thiruvananthapuram, works across software, ERP, hardware, networking and IT services. GSTIN 32BAOPD9925J1ZF.",
   path: "/about",
 });
 
@@ -36,25 +36,15 @@ const principles = [
 
 const { address } = businessInfo;
 
-const registryRows: ReadonlyArray<{ label: string; value: ReactNode }> = [
+const detailRows: ReadonlyArray<{ label: string; value: ReactNode }> = [
   { label: "Business", value: businessInfo.legalName },
-  { label: "Business structure", value: businessInfo.structure },
-  { label: "Registration date", value: businessInfo.registrationDate },
+  { label: "In business since", value: businessInfo.since },
   {
     label: "GSTIN",
     value: <span className="font-mono tracking-wide">{businessInfo.gstin}</span>,
   },
   {
-    label: "Jurisdiction",
-    value: (
-      <>
-        {businessInfo.jurisdiction}
-        <span className="block text-black/55">({businessInfo.jurisdictionCodes})</span>
-      </>
-    ),
-  },
-  {
-    label: "Business address",
+    label: "Address",
     value: (
       <>
         {address.building}, {address.street},
@@ -66,11 +56,15 @@ const registryRows: ReadonlyArray<{ label: string; value: ReactNode }> = [
     ),
   },
   {
-    label: "Nature of business",
+    label: "Phone",
     value: (
       <ul className="space-y-1">
-        {businessInfo.natureOfBusiness.map((item) => (
-          <li key={item}>{item}</li>
+        {businessInfo.phones.map((phone) => (
+          <li key={phone.tel}>
+            <a href={`tel:${phone.tel}`} className="tabular-nums underline-offset-4 hover:underline">
+              {phone.display}
+            </a>
+          </li>
         ))}
       </ul>
     ),
@@ -85,8 +79,8 @@ export default function AboutPage() {
         title={["Practical technology,", "from Thiruvananthapuram."]}
         intro={
           <p>
-            Dera Business Solutions is a registered proprietorship that brings software, enterprise
-            systems, hardware and networking together for businesses.
+            Dera Business Solutions brings software, enterprise systems, hardware and networking
+            together for businesses. In business since {businessInfo.since}.
           </p>
         }
       />
@@ -104,15 +98,14 @@ export default function AboutPage() {
               <MaskText
                 as="h2"
                 id="background-title"
-                lines={["Independently operated.", "Broad by design."]}
+                lines={[`Since ${businessInfo.since}.`, "Broad by design."]}
                 className="text-display-md font-semibold text-white"
               />
               <div className="mt-10 grid gap-6 text-lead text-white/65 md:grid-cols-2 md:gap-10">
                 <Reveal delay={0.06}>
                   <p>
-                    Dera was registered on {businessInfo.registrationDate} and operates from{" "}
-                    {address.locality} in {address.city}, Kerala. It is run as an independent
-                    proprietorship.
+                    Dera has been in business since {businessInfo.since}. It works from{" "}
+                    {address.locality}, on {address.street} in {address.city}, Kerala.
                   </p>
                 </Reveal>
                 <Reveal delay={0.12}>
@@ -128,7 +121,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Registration details */}
+      {/* Business details */}
       <section aria-labelledby="registry-title" className="bg-black pb-24 sm:pb-32">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
@@ -137,10 +130,10 @@ export default function AboutPage() {
                 <Eyebrow index="02">Business information</Eyebrow>
               </Reveal>
               <h2 id="registry-title" className="mt-8 text-display-sm font-semibold text-white">
-                Registered details
+                Business details
               </h2>
               <p className="mt-4 max-w-sm text-[1.0625rem] leading-relaxed text-white/60">
-                Official business details, as registered for Goods and Services Tax.
+                How to find us, call us and bill us.
               </p>
             </div>
             <Reveal delay={0.08} y={32} className="lg:col-span-8">
@@ -158,7 +151,7 @@ export default function AboutPage() {
                   <span className="hidden font-mono text-xs text-black/50 sm:block">{businessInfo.gstin}</span>
                 </div>
                 <dl className="relative divide-y divide-black/10 px-6 sm:px-10">
-                  {registryRows.map((row) => (
+                  {detailRows.map((row) => (
                     <div key={row.label} className="grid gap-1.5 py-5 sm:grid-cols-[13rem_1fr] sm:gap-6">
                       <dt className="font-mono text-[0.6875rem] tracking-[0.14em] text-black/55 uppercase sm:pt-1">{row.label}</dt>
                       <dd className="text-[1.0625rem] leading-relaxed text-black">{row.value}</dd>
@@ -212,7 +205,7 @@ export default function AboutPage() {
                 <Eyebrow index="04">Capabilities</Eyebrow>
               </Reveal>
               <h2 id="capabilities-title" className="mt-8 text-display-sm font-semibold text-white">
-                Registered business activities
+                Areas of business
               </h2>
               <Link
                 href="/services"
