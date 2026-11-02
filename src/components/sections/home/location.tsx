@@ -3,6 +3,7 @@ import { LocationMap } from "@/components/illustrations/location-map";
 import { MaskText } from "@/components/motion/mask-text";
 import { Reveal } from "@/components/motion/reveal";
 import { Container, Eyebrow } from "@/components/ui/primitives";
+import { WhatsAppLink } from "@/components/ui/whatsapp-link";
 import { businessInfo, mapSearchUrl } from "@/config/site";
 
 export function Location() {
@@ -12,7 +13,7 @@ export function Location() {
         <div className="grid gap-14 border-t border-white/10 pt-16 sm:pt-20 lg:grid-cols-12 lg:gap-10">
           <div className="flex flex-col lg:col-span-5">
             <Reveal>
-              <Eyebrow index="06">Where we are</Eyebrow>
+              <Eyebrow index="05">Where we are</Eyebrow>
             </Reveal>
             <MaskText
               as="h2"
@@ -41,11 +42,13 @@ export function Location() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+                <WhatsAppLink className="text-[0.9375rem]" />
               <a
                 href={mapSearchUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-8 inline-flex items-center gap-2 rounded text-[0.9375rem] font-medium text-white"
+                className="group inline-flex items-center gap-2 rounded text-[0.9375rem] font-medium text-white"
               >
                 Open in Google Maps
                 <ArrowUpRight
@@ -55,6 +58,7 @@ export function Location() {
                 />
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
+              </div>
             </Reveal>
           </div>
 

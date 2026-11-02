@@ -1,4 +1,4 @@
-import { monogramD, n1Paths, wordmarkPaths } from "@/components/brand/brand-paths";
+import { monogramD, wordmarkPaths } from "@/components/brand/brand-paths";
 import { businessInfo } from "@/config/site";
 
 export const ogSize = { width: 1200, height: 630 } as const;
@@ -6,11 +6,10 @@ export const ogSize = { width: 1200, height: 630 } as const;
 type OgCardProps = {
   eyebrow: string;
   title: string;
-  mark: "dera" | "n1";
 };
 
 /** Shared Open Graph artwork, rendered by next/og at build time. */
-export function OgCard({ eyebrow, title, mark }: OgCardProps) {
+export function OgCard({ eyebrow, title }: OgCardProps) {
   const gridLines = Array.from({ length: 20 }, (_, i) => i * 64);
   return (
     <div
@@ -40,22 +39,11 @@ export function OgCard({ eyebrow, title, mark }: OgCardProps) {
       </svg>
 
       <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-        {mark === "dera" ? (
-          <svg width="172" height="40" viewBox="0 0 86 20" fill="#fff">
-            {wordmarkPaths.map((d) => (
-              <path key={d} d={d} />
-            ))}
-          </svg>
-        ) : (
-          <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-            <svg width="108" height="60" viewBox="0 0 36 20" fill="#fff">
-              {n1Paths.map((d) => (
-                <path key={d} d={d} />
-              ))}
-            </svg>
-            <span style={{ fontSize: 48, fontWeight: 700, letterSpacing: 2 }}>ERP</span>
-          </div>
-        )}
+        <svg width="172" height="40" viewBox="0 0 86 20" fill="#fff">
+          {wordmarkPaths.map((d) => (
+            <path key={d} d={d} />
+          ))}
+        </svg>
       </div>
 
       <div style={{ display: "flex", flexDirection: "column" }}>

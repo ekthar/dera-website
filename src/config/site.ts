@@ -1,7 +1,7 @@
 /**
  * Single source of truth for business facts.
  * Everything here comes from the business details supplied by Dera Business
- * Solutions. Optional channels (email, WhatsApp, social) are read from the
+ * Solutions. Optional channels (email, social) are read from the
  * environment and stay hidden until a real value is configured.
  */
 
@@ -52,6 +52,8 @@ export const businessInfo = {
     { display: "+91 98957 99990", tel: "+919895799990" },
     { display: "+91 96450 09821", tel: "+919645009821" },
   ],
+  /** WhatsApp number, digits only with country code. */
+  whatsapp: { display: "+91 98957 99990", number: "919895799990" },
   address: {
     building: "TC 1/2794-2",
     street: "NH-66",
@@ -77,13 +79,17 @@ export const mapSearchUrl = `https://www.google.com/maps/search/?api=1&query=${e
   addressSingleLine,
 )}`;
 
+/** Opens a WhatsApp chat with a short greeting already typed. */
+export const whatsappUrl = `https://wa.me/${businessInfo.whatsapp.number}?text=${encodeURIComponent(
+  "Hello Dera Business Solutions, I would like to make an enquiry.",
+)}`;
+
 /**
- * Optional public contact channels. Set them in the environment once they are
- * verified. Nothing is shown on the site while they are empty.
+ * Optional public email. Set it in the environment once it is verified.
+ * Nothing is shown on the site while it is empty.
  */
 export const contactChannels = {
   email: optional(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
-  whatsapp: optional(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)?.replace(/[^\d]/g, "") || null,
 } as const;
 
 /** Social profiles. Add real URLs only. Empty entries are never rendered. */

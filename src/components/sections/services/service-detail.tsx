@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { serviceIcons } from "@/components/illustrations/service-icons";
 import { ServiceVisual } from "@/components/illustrations/service-visuals";
 import { Reveal } from "@/components/motion/reveal";
@@ -68,12 +67,6 @@ export function ServiceDetail({ service }: { service: Service }) {
         <ButtonLink href={`/contact?service=${service.slug}`} size="md">
           Discuss {shortNames[service.slug]}
         </ButtonLink>
-        {service.slug === "enterprise-erp" ? (
-          <Link href="/n1-erp" className="group inline-flex items-center gap-2 rounded text-[0.9375rem] font-medium text-white/80 hover:text-white">
-            About N1 ERP
-            <ArrowRight aria-hidden strokeWidth={1.75} className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        ) : null}
       </Reveal>
     </article>
   );

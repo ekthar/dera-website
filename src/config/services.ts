@@ -28,7 +28,7 @@ export const services: ReadonlyArray<Service> = [
     summary:
       "Connected systems that bring business operations, information and workflows together.",
     description:
-      "Enterprise systems work best when information flows between departments without retyping. We help businesses plan and implement connected systems for operations, records and reporting, and we are building our own ERP platform, N1 ERP.",
+      "Enterprise systems work best when information flows between departments without retyping. We help businesses plan and implement connected systems for operations, records and reporting.",
     value: [
       "One place for operational information instead of scattered spreadsheets",
       "Workflows planned around how teams hand work to each other",
@@ -38,7 +38,7 @@ export const services: ReadonlyArray<Service> = [
       "Planning an ERP or business management system",
       "Consolidating records across sales, stock and accounts",
       "Reporting and visibility for owners and managers",
-      "Enquiries about N1 ERP, our platform in development",
+      "Custom ERP development",
     ],
     visual: "erp",
   },
@@ -126,7 +126,6 @@ export const services: ReadonlyArray<Service> = [
 
 export const contactServiceOptions: ReadonlyArray<{ value: string; label: string }> = [
   ...services.map((service) => ({ value: service.slug, label: service.title })),
-  { value: "n1-erp", label: "N1 ERP product enquiry" },
   { value: "supply", label: "Wholesale or retail supply" },
   { value: "other", label: "Something else" },
 ];

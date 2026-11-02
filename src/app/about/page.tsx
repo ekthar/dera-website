@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { DeraMonogram, N1Wordmark } from "@/components/brand/logo";
+import { DeraMonogram } from "@/components/brand/logo";
 import { PageHero } from "@/components/layout/page-hero";
 import { MaskText } from "@/components/motion/mask-text";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 import { ClosingCta } from "@/components/sections/closing-cta";
-import { Container, CornerMarks, Eyebrow, StatusBadge } from "@/components/ui/primitives";
+import { Container, CornerMarks, Eyebrow } from "@/components/ui/primitives";
 import { businessActivities } from "@/config/services";
 import { businessInfo } from "@/config/site";
 import { createPageMetadata } from "@/lib/seo";
@@ -230,56 +230,31 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Current initiative and direction */}
-      <section aria-labelledby="initiative-title" className="bg-black pb-8">
+      {/* Direction */}
+      <section aria-labelledby="direction-title" className="bg-black pb-8">
         <Container>
-          <div className="grid gap-4 lg:grid-cols-2">
-            <Reveal>
-              <Link
-                href="/n1-erp"
-                className="group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] bg-white p-8 text-black ring-1 ring-white transition-transform duration-500 ease-out-quart hover:-translate-y-0.5 sm:p-10"
-              >
-                <div className="flex items-center justify-between">
-                  <p className="font-mono text-[0.6875rem] tracking-[0.16em] text-black/55 uppercase">Current initiative</p>
-                  <StatusBadge tone="light" pulse>
-                    In development
-                  </StatusBadge>
-                </div>
-                <N1Wordmark className="mt-14 text-[2.75rem] text-black" />
-                <h2 id="initiative-title" className="mt-6 font-display text-display-sm font-semibold">
-                  Dera&apos;s own ERP platform.
-                </h2>
-                <p className="mt-4 max-w-md text-[1.0625rem] leading-relaxed text-black/65">
-                  N1 ERP is being built to bring business management, accounting, inventory, sales and
-                  purchasing into one connected system.
-                </p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-10 text-sm font-medium">
-                  Explore N1 ERP
-                  <ArrowRight aria-hidden strokeWidth={1.75} className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
-              </Link>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="flex h-full flex-col rounded-[1.5rem] bg-graphite p-8 ring-1 ring-white/10 sm:p-10">
+          <Reveal>
+            <div className="grid gap-10 rounded-[1.5rem] bg-graphite p-8 ring-1 ring-white/10 sm:p-12 lg:grid-cols-2 lg:items-end lg:gap-16">
+              <div>
                 <p className="font-mono text-[0.6875rem] tracking-[0.16em] text-white/50 uppercase">Long-term direction</p>
-                <h2 className="mt-14 font-display text-display-sm font-semibold text-white">
+                <h2 id="direction-title" className="mt-10 font-display text-display-sm font-semibold text-white">
                   From services to systems.
                 </h2>
                 <p className="mt-4 max-w-md text-[1.0625rem] leading-relaxed text-white/60">
-                  The aim is to keep delivering practical services while growing Dera&apos;s own software,
+                  The aim is to keep delivering practical services while growing Dera&apos;s software work,
                   so that more of what businesses need can come from one dependable, connected source.
                 </p>
-                <ul className="mt-auto grid gap-3 pt-10 text-[0.9375rem] text-white/75 sm:grid-cols-2">
-                  {["Mature N1 ERP into a released product", "Deepen software and automation work", "Keep hardware and networks close to the software", "Stay rooted in Kerala"].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span aria-hidden className="mt-2.5 h-px w-3 shrink-0 bg-white/50" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
-            </Reveal>
-          </div>
+              <ul className="grid gap-3 text-[0.9375rem] text-white/75 sm:grid-cols-2">
+                {["Deepen software and automation work", "Keep hardware and networks close to the software", "Stay practical and easy to reach", "Stay rooted in Kerala"].map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <span aria-hidden className="mt-2.5 h-px w-3 shrink-0 bg-white/50" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

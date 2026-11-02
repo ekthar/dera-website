@@ -19,7 +19,7 @@ export function Approach() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-32">
               <Reveal>
-                <Eyebrow index="05">Our approach</Eyebrow>
+                <Eyebrow index="04">Our approach</Eyebrow>
               </Reveal>
               <MaskText
                 as="h2"

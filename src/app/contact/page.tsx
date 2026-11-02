@@ -5,6 +5,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { ContactFormWithPreset } from "@/components/contact/contact-form-loader";
 import { PageHero } from "@/components/layout/page-hero";
 import { Container } from "@/components/ui/primitives";
+import { WhatsAppLink } from "@/components/ui/whatsapp-link";
 import { businessInfo, contactChannels, mapSearchUrl } from "@/config/site";
 import { isEmailDeliveryConfigured } from "@/lib/email";
 import { createPageMetadata } from "@/lib/seo";
@@ -28,10 +29,6 @@ function InfoBlock({ label, children }: { label: string; children: ReactNode }) 
 export default function ContactPage() {
   const deliveryConfigured = isEmailDeliveryConfigured();
   const { address } = businessInfo;
-  const whatsappUrl = contactChannels.whatsapp
-    ? `https://wa.me/${contactChannels.whatsapp}?text=${encodeURIComponent("Hello Dera Business Solutions, I would like to make an enquiry.")}`
-    : null;
-
   return (
     <>
       <PageHero
@@ -73,6 +70,11 @@ export default function ContactPage() {
                 </ul>
               </InfoBlock>
 
+              <InfoBlock label="WhatsApp">
+                <p className="tabular-nums">{businessInfo.whatsapp.display}</p>
+                <WhatsAppLink className="mt-3" />
+              </InfoBlock>
+
               <InfoBlock label="Business address">
                 <address className="not-italic">
                   {address.building}, {address.street},
@@ -97,16 +99,6 @@ export default function ContactPage() {
                 <InfoBlock label="Email">
                   <a href={`mailto:${contactChannels.email}`} className="underline-offset-4 hover:underline">
                     {contactChannels.email}
-                  </a>
-                </InfoBlock>
-              ) : null}
-
-              {whatsappUrl ? (
-                <InfoBlock label="WhatsApp">
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 font-medium text-white">
-                    Send a WhatsApp enquiry
-                    <ArrowUpRight aria-hidden strokeWidth={1.75} className="size-4" />
-                    <span className="sr-only"> (opens in a new tab)</span>
                   </a>
                 </InfoBlock>
               ) : null}

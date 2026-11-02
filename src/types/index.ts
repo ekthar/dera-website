@@ -23,11 +23,3 @@ export type Service = {
   useCases: ReadonlyArray<string>;
   visual: ServiceVisualKind;
 };
-
-export type ErpModuleStatus = "planned" | "in-development";
-
-export type ErpModule = {
-  name: string;
-  description: string;
-  status: ErpModuleStatus;
-};

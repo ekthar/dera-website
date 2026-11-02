@@ -16,7 +16,7 @@ export function WhyDera() {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Reveal>
-              <Eyebrow index="04">Why Dera</Eyebrow>
+              <Eyebrow index="03">Why Dera</Eyebrow>
             </Reveal>
           </div>
           <MaskText

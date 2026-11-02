@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, CircleAlert, CircleCheck, Info, LoaderCircle } from "lucide-react";
 import { useId, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { contactServiceOptions } from "@/config/services";
-import { businessInfo } from "@/config/site";
+import { businessInfo, whatsappUrl } from "@/config/site";
 import {
   contactLimits,
   emptyContactFields,
@@ -182,6 +182,15 @@ export function ContactForm({ deliveryConfigured, initialService = "", fallbackE
             Please call{" "}
             <a className="whitespace-nowrap text-white underline underline-offset-2 tabular-nums" href={`tel:${callFirst.tel}`}>
               {callFirst.display}
+            </a>{" "}
+            or message us on{" "}
+            <a
+              className="whitespace-nowrap text-white underline underline-offset-2"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp<span className="sr-only"> (opens in a new tab)</span>
             </a>
             {fallbackEmail ? (
               <>

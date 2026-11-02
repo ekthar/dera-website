@@ -50,8 +50,8 @@ export function Hero() {
               <ButtonLink href="/services" magnetic>
                 Explore Our Services
               </ButtonLink>
-              <ButtonLink href="/n1-erp" variant="secondary" icon="arrow-up-right" magnetic>
-                Discover N1 ERP
+              <ButtonLink href="/about" variant="secondary" icon="none" magnetic>
+                About Dera
               </ButtonLink>
             </div>
           </div>

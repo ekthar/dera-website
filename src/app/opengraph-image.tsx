@@ -7,7 +7,7 @@ export const contentType = "image/png";
 
 export default function OpengraphImage() {
   return new ImageResponse(
-    <OgCard eyebrow="Technology. Systems. Solutions." title="Building the infrastructure for what's next." mark="dera" />,
+    <OgCard eyebrow="Technology. Systems. Solutions." title="Building the infrastructure for what's next." />,
     size,
   );
 }

@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 import { easeOutExpo } from "@/components/motion/variants";
 import { contactNavItem, primaryNav } from "@/config/navigation";
 import { addressLines } from "@/config/site";
+import { WhatsAppLink } from "@/components/ui/whatsapp-link";
 import { cn } from "@/lib/utils";
 
 type MobileMenuProps = {
@@ -150,6 +151,7 @@ export function MobileMenu({ open, onClose, pathname }: MobileMenuProps) {
                 Start a conversation
                 <ArrowRight aria-hidden className="size-4" strokeWidth={1.75} />
               </Link>
+              <WhatsAppLink variant="pill" className="mt-3 w-full" />
             </m.div>
           </nav>
         </m.div>

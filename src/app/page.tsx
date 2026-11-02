@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { ClosingCta } from "@/components/sections/closing-cta";
 import { Approach } from "@/components/sections/home/approach";
 import { Capabilities } from "@/components/sections/home/capabilities";
-import { ErpFeature } from "@/components/sections/home/erp-feature";
 import { Hero } from "@/components/sections/home/hero";
 import { Intro } from "@/components/sections/home/intro";
 import { Location } from "@/components/sections/home/location";
@@ -23,7 +22,6 @@ export default function HomePage() {
       <Hero />
       <Intro />
       <Capabilities />
-      <ErpFeature />
       <WhyDera />
       <Approach />
       <Location />

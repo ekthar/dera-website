@@ -13,7 +13,6 @@ export const metadata: Metadata = createPageMetadata({
 const sections = [
   { id: "about", title: "About these terms" },
   { id: "information", title: "Information on this site" },
-  { id: "n1-erp", title: "N1 ERP" },
   { id: "services", title: "Services and quotations" },
   { id: "use", title: "Acceptable use" },
   { id: "ip", title: "Intellectual property" },
@@ -38,13 +37,6 @@ export default function TermsPage() {
         accurate and current, but it may change without notice and does not form an offer or a binding commitment.
       </p>
 
-      <h2 id="n1-erp">N1 ERP</h2>
-      <p>
-        N1 ERP is a product in development. Descriptions, interface previews and capability themes shown on this website are
-        illustrative and planned. Features may change, be added or be removed before any release, and no release date is
-        promised. Figures shown in interface previews are sample data and do not describe any real business.
-      </p>
-
       <h2 id="services">Services and quotations</h2>
       <p>
         Sending an enquiry through this website does not create a contract. Any work, supply of hardware or software
@@ -62,7 +54,7 @@ export default function TermsPage() {
 
       <h2 id="ip">Intellectual property</h2>
       <p>
-        The Dera name, wordmark and monogram, the N1 ERP name and wordmark, and the design, text and graphics of this
+        The Dera name, wordmark and monogram, and the design, text and graphics of this
         website belong to {businessInfo.legalName} unless stated otherwise. You may view and share pages for personal or
         internal business reference. Any other reproduction requires our written permission.
       </p>

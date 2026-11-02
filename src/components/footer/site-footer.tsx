@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { DeraWordmark } from "@/components/brand/logo";
 import { Container } from "@/components/ui/primitives";
+import { WhatsAppLink } from "@/components/ui/whatsapp-link";
 import { footerNav } from "@/config/navigation";
 import { businessInfo, contactChannels, siteConfig, socialLinks } from "@/config/site";
 
@@ -31,6 +32,9 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
+              <li className="pt-2">
+                <WhatsAppLink className="text-[0.9375rem]" />
+              </li>
               {contactChannels.email ? (
                 <li>
                   <a className={linkClass} href={`mailto:${contactChannels.email}`}>

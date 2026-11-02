@@ -28,14 +28,3 @@ export const wordmarkPaths: ReadonlyArray<string> = [
   // A
   "M66 20 73.5 0h5L86 20h-5.5L76 8l-4.5 12z",
 ];
-
-/** N1 product mark. viewBox 0 0 36 20. */
-export const n1Paths: ReadonlyArray<string> = [
-  // N
-  "M0 0h5v20H0z",
-  "M15 0h5v20h-5z",
-  "M5 0h4.5L15 20h-4.5z",
-  // 1
-  "M23 5 29 0v5l-6 5z",
-  "M31 0h5v20h-5z",
-];

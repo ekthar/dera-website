@@ -1,8 +1,8 @@
 # Dera Business Solutions — website
 
 The corporate website for **Dera Business Solutions**, Kazhakuttam, Thiruvananthapuram, Kerala
-(GSTIN 32BAOPD9925J1ZF), in business since 2013. It presents the company's services and its
-in-development product, **N1 ERP**.
+(GSTIN 32BAOPD9925J1ZF), in business since 2013. It presents the company's services and how to
+reach the business.
 
 Monochrome design system, editorial typography, and a restrained motion language built with
 Next.js App Router, React 19, TypeScript, Tailwind CSS 4 and Motion.
@@ -11,16 +11,15 @@ Next.js App Router, React 19, TypeScript, Tailwind CSS 4 and Motion.
 
 | Route             | Purpose                                                                |
 | ----------------- | ---------------------------------------------------------------------- |
-| `/`               | Home: hero, introduction, capabilities, N1 ERP, approach, location, CTA |
+| `/`               | Home: hero, introduction, capabilities, approach, location, CTA        |
 | `/services`       | All six service areas with value, use cases and contact links          |
-| `/n1-erp`         | N1 ERP product page, clearly marked as in development                  |
 | `/about`          | Company profile and business details                                   |
 | `/contact`        | Validated contact form and business details                            |
 | `/privacy-policy` | Privacy policy                                                         |
 | `/terms`          | Terms of use                                                           |
 
 Generated routes: `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`, `/opengraph-image`,
-`/n1-erp/opengraph-image`, `/apple-icon`, `/icon.svg`, `/favicon.ico`, and `POST /api/contact`.
+`/apple-icon`, `/icon.svg`, `/favicon.ico`, and `POST /api/contact`.
 
 ## Requirements
 
@@ -49,7 +48,7 @@ npm run build
 npm run start          # serves the production build on port 3000
 ```
 
-All seven pages are prerendered as static HTML at build time. Only `POST /api/contact` runs on
+All six pages are prerendered as static HTML at build time. Only `POST /api/contact` runs on
 the server per request.
 
 ## Environment variables
@@ -61,7 +60,6 @@ See [`.env.example`](./.env.example) for the full list. Summary:
 | `NEXT_PUBLIC_SITE_URL`                     | Production origin for canonical URLs, Open Graph and sitemap |
 | `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` | Turns on contact form email delivery         |
 | `NEXT_PUBLIC_CONTACT_EMAIL`                | Shows a public email address                                 |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER`              | Adds a WhatsApp enquiry link on the contact page             |
 | `NEXT_PUBLIC_LINKEDIN_URL`, `NEXT_PUBLIC_INSTAGRAM_URL`, `NEXT_PUBLIC_X_URL` | Adds footer social links   |
 
 `NEXT_PUBLIC_*` values are read at build time. Rebuild after changing them. Set
@@ -113,17 +111,16 @@ Put a reverse proxy with HTTPS in front (for example Nginx or Caddy), and forwar
 src/
   app/                 routes, metadata files, API route, global styles
   components/
-    brand/             DERA wordmark, monogram, N1 ERP wordmark (SVG geometry)
+    brand/             DERA wordmark and monogram (SVG geometry)
     navigation/        floating nav and fullscreen mobile menu
     footer/            footer with brand signature
     layout/            page hero, legal page layout, JSON-LD
     sections/          home, services and shared sections
     motion/            reusable reveal, mask, parallax, magnetic and page transition
     illustrations/     hero composition, service drawings, location map
-    erp-preview/       N1 ERP interface concept (dashboard, stage, tabs, architecture)
     contact/           contact form
     ui/                buttons, primitives, spotlight card
-  config/              business facts, navigation, services, N1 ERP content
+  config/              business facts, navigation, services
   lib/                 SEO helpers, contact validation, email delivery, OG artwork
   types/
 public/brand/          standalone SVG brand assets
@@ -132,13 +129,9 @@ scripts/               favicon generator
 
 ### Editing content
 
-- **Business facts** (name, GSTIN, address, phones, since year): `src/config/site.ts`
+- **Business facts** (name, GSTIN, address, phones, WhatsApp, since year): `src/config/site.ts`
 - **Navigation and sitemap routes**: `src/config/navigation.ts`
 - **Services**: `src/config/services.ts`
-- **N1 ERP themes, stages and principles**: `src/config/erp.ts`
-- **Illustrative dashboard figures**: `src/components/erp-preview/erp-data.ts`
-
-Keep N1 ERP capability statuses honest: everything is marked `planned` until it ships.
 
 ## Brand assets
 
@@ -149,10 +142,9 @@ its bowl or bars by a 2-unit gap.
 | -------------------- | ------------------------------------------ |
 | DERA wordmark        | `public/brand/dera-wordmark.svg`, `DeraWordmark` |
 | Monogram             | `public/brand/dera-monogram.svg`, `DeraMonogram` |
-| N1 ERP wordmark      | `public/brand/n1-erp.svg`, `N1Wordmark`    |
 | Favicon              | `src/app/icon.svg`, `src/app/favicon.ico`  |
 | Apple touch icon     | `src/app/apple-icon.tsx`                   |
-| Open Graph images    | `src/app/opengraph-image.tsx`, `src/app/n1-erp/opengraph-image.tsx` |
+| Open Graph image     | `src/app/opengraph-image.tsx`              |
 | Footer signature     | `SiteFooter`, full-width wordmark          |
 
 After editing `src/app/icon.svg`, regenerate the ICO with `npm run brand:favicon`.

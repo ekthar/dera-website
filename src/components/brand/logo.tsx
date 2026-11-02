@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { monogramD, n1Paths, wordmarkPaths } from "./brand-paths";
+import { monogramD, wordmarkPaths } from "./brand-paths";
 
 type MarkProps = {
   className?: string;
@@ -54,27 +54,6 @@ export function DeraLockup({ className }: { className?: string }) {
         <br />
         SOLUTIONS
       </span>
-    </span>
-  );
-}
-
-/** N1 ERP product wordmark. */
-export function N1Wordmark({ className, title, withErp = true }: MarkProps & { withErp?: boolean }) {
-  return (
-    <span
-      className={cn("inline-flex items-center gap-[0.42em]", className)}
-      role={title ? "img" : undefined}
-      aria-label={title}
-      aria-hidden={title ? undefined : true}
-    >
-      <svg viewBox="0 0 36 20" fill="currentColor" className="block h-[1em] w-auto">
-        {n1Paths.map((d) => (
-          <path key={d} d={d} />
-        ))}
-      </svg>
-      {withErp ? (
-        <span className="font-display text-[0.78em] leading-none font-semibold tracking-[0.06em]">ERP</span>
-      ) : null}
     </span>
   );
 }
